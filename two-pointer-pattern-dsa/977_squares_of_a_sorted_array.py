@@ -31,7 +31,8 @@ class Solution(object):
             neg.reverse()
             return neg
 
-        arr = []
+        length = len(nums)
+        arr = [0] * length
 
         for i in range(len(pos)):
             pos[i] = pos[i]*pos[i]
@@ -43,3 +44,24 @@ class Solution(object):
 
         i = 0
         j = 0
+        k = 0
+        while(i<len(pos) and j<len(neg)):
+            if pos[i]<neg[j]:
+                arr[k]=pos[i]
+                i+=1
+            else:
+                arr[k]=neg[j]
+                j+=1
+            k+=1
+
+        while(j<len(neg)):
+            arr[k]=neg[j]
+            j+=1
+            k+=1
+
+        while(i<len(pos)):
+            arr[k]=pos[i]
+            i+=1
+            k+=1
+
+        return arr
