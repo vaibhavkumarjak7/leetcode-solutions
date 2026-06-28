@@ -11,8 +11,13 @@
 # Input: nums = [0,0,0], target = 1
 # Output: 0
 # Explanation: The sum that is closest to the target is 0. (0 + 0 + 0 = 0).
-class Solution:
-    def threeSumClosest(self, nums: List[int], target: int) -> int:
+class Solution(object):
+    def threeSumClosest(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
         nums.sort()
         min_diff = 1000000
         for i in range(0, len(nums)-2):
